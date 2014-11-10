@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="dialer.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+        <link rel="stylesheet" href="css/psprint.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/gmap3.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+    <body>
+        
+        
+        <!------Home Page Starts------>
+        <div data-role="page" id="home">
+            <div data-role="header" id="app-header">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                
+            </div>
+            <div align="center" data-role="content" id="Div2" name="contentConfirmation">
+                <ul id="home-icons">
+                    <li id="liJobTracker">
+                        <a href="#jobsList" data-transition="slide">Job Tracker</a>
+                    </li>
+                    <li id="liLocation">
+                        <a href="#locations" data-transition="slide">Locations</a>
+                    </li>
+                    <li  id="liContactUs">
+                        <a href="#ContactPsp" data-transition="slide">Contact Us</a>
+                    </li>
+                    <li id="liNotification">
+                        <a href="#Notifications" data-transition="slide">Notifications</a>
+                    </li>
+                    <li id="liSampleKit">
+                        <a href="#SampleKit" data-transition="slide">Sample Kit</a>
+                    </li>
+                    <li id="liFreeQuote">
+                        <a href="#freeQuote" data-transition="slide">Free Quote</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!------Home Page Ends------>
+        
+        <!------Login Page Starts------>
+        <div data-role="page" id="login">
+            <div data-role="header" id="app-header">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="large-user-icon"></div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="login-form">
+                    <form id="ULogin" method="POST" data-ajax="false">
+                        <div data-role="fieldcontain">
+                            <input class="required" id="username" name="uid_r" type="text" value="" placeholder="Username"/>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <input id="password" name="pwd_r" type="password" value="" placeholder="Password"/>
+                        </div>
+                        <button type="submit" id="btnLogin">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!------Login Page Ends------>
+        
+        <!------Job List Page Starts------>
+        <div data-role="page" id="jobsList">
+            <div data-role="header" id="app-header" data-position="fixed" data-tap-toggle="false">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <ul>
+                            <li><a href="#" class="ui-btn-active" id="in-progress">In Process</a></li>
+                            <li><a href="#" id="completed">Completed</a></li>
+							<li><a href="#" id="allJobs">All</a></li>
+                        </ul>
+                        
+                    </div>
+                    <a href="#" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="jobList">
+                    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Job name, Job ID, Product name, Quantity etc." id="job-list">
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span class="job-date">Monday, Nov 27, 2014</span>
+                                    <h5 class="job-id">1876366-3662342</h5>
+                                    <p class="pending status">Payment Pending</p>
+									<p class="job-detail">Business Cards - 200 - $20</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="ready status">Ready for pickup</p>
+									<p>Beverage Coasters - 150 - $45</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Nov 25, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped status">Shipped</p>
+									<p>DVD Jewel Case - 200 - $125</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Nov 22, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped status">Shipped</p>
+									<p>Business Cards - 200 - $20</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Nov 19, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="ready status">Ready for pickup</p>
+									<p>Business Cards - 200 - $20</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Nov 07, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped status">Shipped</p>
+									<p>Folded Holiday Cards - 100 - $200</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Oct 30, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped">Shipped</p>
+									<p>Folded Holiday Cards - 300 - $330</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Oct 24, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped">Shipped</p>
+									<p>Business Cards - 200 - $20</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#jobDetail" data-transition="slide" class="ui-nodisc-icon ui-alt-icon">
+                                <div class="job-title">
+                                    <span>Monday, Oct 14, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p class="shipped">Shipped</p>
+									<p>Business Cards - 200 - $20</p>
+                                </div>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------Job List Page Ends------>
+        
+        <!------Job Details Page Starts------>
+        <div data-role="page" id="jobDetail">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>My Order</h3>
+                    </div>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="single-job-details">
+                    <div class="single-detail-header">
+                        <span class="date">Monday, Nov 27, 2014</span>
+                        <h5 class="job-id">1876366-3662342</h5>
+                    </div>
+                    <div class="single-detail-content">
+                        <div class="detail-content-top">
+                            <h4>STANDARD</h4>
+                            <h6>US Standard 3.5"x2"</h6>
+                            <span>Processing</span>
+                        </div>
+                        <div class="detail-content-status">
+                            <div class="status approval complete">
+                                <h6>Approval</h6>
+                            </div>
+                            <div class="status process complete">
+                                <h6>Processing</h6>
+                            </div>
+                            <div class="status shipping">
+                                <h6>Shipping</h6>
+                            </div>
+                            <div class="status delivery">
+                                <h6>Delivery</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detail-content-main">
+                            <div class="detail-texts">
+                                Job ID : <span class="job-id">384763AD45S234</span>
+                            </div>
+                            <div class="detail-texts">
+                                Job Name : <span class="job-name">Business Cards</span>
+                            </div>
+                            <div class="detail-texts">
+                                Quantity : <span class="job-quantity">500</span>
+                            </div>
+                            <div class="detail-texts">
+                                Color : 4/4
+                            </div>
+                            <div class="detail-texts">
+                                Paper : 15pt velvet
+                            </div>
+                            <div class="detail-texts">
+                                Shipping Method : UPS 2-day
+                            </div>
+							<div class="detail-texts">
+								Status : <span id="job-status"></span>
+							</div>
+                            <div class="detail-texts list-back">
+                                <a href="#" data-rel="back" data-transition="slide">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-detail-footer">
+                        <a href="#" class="call-btn"></a>
+                        <h6>Customer Care</h6>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------Job Details Page Ends------>
+        
+        <!------Shipping status Page starts------>
+        <div data-role="page" id="shipStatus">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Shipping Status</h3>
+                    </div>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="single-job-details">
+                    <div class="single-detail-content">
+                        <div class="detail-content-main">
+                            <div class="detail-texts job-id">
+                                <h3>Job # : 34534534-345345</h3>
+                            </div>
+                            <div class="detail-texts">
+                                <h3>Order Shipped</h3>
+                            </div>
+                            <div class="detail-texts">
+                                UPS 2nd Day<br />
+                                Estimated Arrival 10/06
+                            </div>
+                            <div class="detail-texts">
+                                Marlyn Jones<br />
+                                564 Main Street
+                            </div>
+                            <div class="detail-texts tracking-id">
+                                <a href="#">Tracking # : 4534534SDWY3453</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-detail-footer">
+                        <a href="#" class="call-btn"></a>
+                        <h6>Customer Care</h6>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------Shipping Status Page Ends------>
+        
+        <!------Pickup Page Starts------>
+        <div data-role="page" id="pickUp">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Pickup Location</h3>
+                    </div>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="single-job-details">
+                    <div class="single-detail-content">
+                        <div class="detail-content-main">
+                            <div class="detail-texts pick-up" id="destination">
+                                <h3>2861 Mondilo Porkway<br />Oakland, CA 96608</h3>
+                            </div>
+                            <div class="detail-texts" id="map-view">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------Pickup Page Ends------>
+        
+        <!------Locations Page start------>
+        <div data-role="page" id="locations">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Locations</h3>
+                    </div>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="single-job-details">
+                    <div class="single-detail-content">
+                        <div class="detail-content-main">
+                            <div class="detail-texts pick-up locations">
+                                <h3>Oakland</h3>
+                                <small>2861 Mondilo Porkway, Oakland, CA 96608</small>
+                            </div>
+                            <div class="detail-texts pick-up locations">
+                                <h3>Chicago</h3>
+                                <small>1600 East Touhy Ave, Des Plaines, IL 60018</small>
+                            </div>
+                            <div class="detail-texts pick-up locations">
+                                <h3>Mountain Lakes</h3>
+                                <small>105 US Highway 46, Mountain Lakes, NJ 07046-1645</small>
+                            </div>
+                            <div class="detail-texts" id="map-location" style="width:93%;height:200px">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------Locations Page end------>
+        
+        <!------contact Page start------>
+        <div data-role="page" id="ContactPsp">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Contact Us</h3>
+                    </div>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="single-job-details">
+                    <div class="single-detail-content">
+                        <div class="detail-content-main">
+                            <div class="detail-texts contacts email">
+                                <a href="mailTo:support@psprint.com"><h3>Email</h3>
+                                    support@psprint.com</a>
+                            </div>
+                            <div class="detail-texts contacts call">
+                                <a href="Tel:800-511-2009"><h3>Phone</h3>
+                                    800-511-2009</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!------contact Page start------>
+        
+        <div data-role="page" id="Notifications">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Notifications</h3>
+                    </div>
+					<a href="#NotifySettings" class="notify-settings-btn"></a>
+                    <a href="#" data-rel="back" class="logout-btn"></a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="NotificationList">
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon success">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card is ready to pick up.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon information">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card has been shipped</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon cancelled">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your order has been cancelled.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon success">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card is ready to pick up.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon information">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card has been shipped</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon cancelled">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your order has been cancelled.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon success">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card is ready to pick up.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon information">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card has been shipped</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon cancelled">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your order has been cancelled.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon success">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card is ready to pick up.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon information">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your Business card has been shipped</p>
+                                </div>
+                            </a>  
+                        </li>
+                        <li>
+                            <a href="jobdetail.html" data-transition="slide" class="ui-nodisc-icon ui-alt-icon cancelled">
+                                <div class="job-title">
+                                    <span>Monday, Nov 27, 2014</span>
+                                    <h5>1876366-3662342</h5>
+                                    <p>Your order has been cancelled.</p>
+                                </div>
+                            </a>   
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+                        <a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+                        <a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+                        <a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+                        <a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div data-role="page" id="SampleKit">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Sample Kit</h3>
+                    </div>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div class="form-wrap">
+                    <form id="sk_form" method="POST">
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_firstname" name="sk_firstname" type="text" value="" placeholder="First Name">
+                                </div>
+                        <div data-role="fieldcontain">
+                            <input id="sk_lastname" name="sk_lastname" type="password" value="" placeholder="Last Name">
+                                </div>
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_email" name="sk_email" type="email" value="" placeholder="Email Address">
+                                </div>
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_address" name="sk_address" type="text" value="" placeholder="Address">
+                                </div>
+                        <fieldset class="ui-field-contain">
+                            <select name="sk_country" id="sk_country" data-native-menu="false">
+                                <option value="AG">Afghanistan</option>
+                                <option value="AG">Albania</option>
+                                <option value="AG">Algeria</option>
+                                <option value="AG">Andorra</option>
+                                <option value="AG">Angola</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AG">Argentina</option>
+                                <option value="AG">Armenia</option>
+                                <option value="AG">Aruba</option>
+                                <option value="AG">Australia</option>
+                                <option value="AG">Austria</option>
+                                <option value="AG">Azerbaijan</option>
+                                <option value="US" selected>United States</option>
+                            </select>
+                        </fieldset>
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_zipcode" name="sk_zipcode" type="text" value="" placeholder="Zip Code">
+                                </div>
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_state" name="sk_state" type="text" value="" placeholder="State">
+                                </div>
+                        <div data-role="fieldcontain">
+                            <input class="required" id="sk_city" name="sk_city" type="text" value="" placeholder="City">
+                                </div>
+                        <div data-role="navbar">
+                            <ul>
+                                <li><button type="submit">Submit</button></li>
+                                <li><button type="reset">Reset</button></li>
+                            </ul>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div data-role="page" id="freeQuote">
+            <div data-role="header" id="app-header" data-position="fixed">
+                <img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+                <div id="custom-nav-wrap">
+                    <a href="#" data-rel="back" class="back-btn"></a>
+                    <div class="traker-button-block" data-role="navbar">
+                        <h3>Free Proof</h3>
+                    </div>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <div class="form-wrap">
+                    <p>Fill form for a free proof</p>
+                    <form id="sk_form" method="POST" enctype="multipart/form-data">
+                        <fieldset class="ui-field-contain">
+                            <select name="fp_type" id="fp_type" data-native-menu="false">
+                                <option value="Beverage Coasters">Beverage Coasters</option>
+                                <option value="Business Card">Business Card</option>
+                                <option value="Car Door Magnet">Car Door Magnet</option>
+                                <option value="DVD Jewel Case">DVD Jewel Case</option>
+                                <option value="Envelop">Envelop</option>
+                                <option value="Folded Holiday Cards">Folded Holiday Cards</option>
+                                <option value="Gift Labels">Gift Labels</option>
+                                <option value="Greeting Cards">Greeting Cards</option>
+                                <option value="ID Badge">ID Badge</option>
+                                <option value="Custom Magnet">Custom Magnet</option>
+                                <option value="Response Card">Response Card</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="ui-field-contain">
+                            <select name="fp_size" id="fp_size" data-native-menu="false">
+                                <option value="AG">3.5" x 3.5" (Square Rounded Corner)</option>
+                                <option value="AG">3.625 Circle</option>
+                                <option value="AG">3.5" x 2" (Standard)</option>
+                                <option value="AG">3.5" x 1" (slim)</option>
+                                <option value="AG">2" x 2" (Mini-Square)</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="ui-field-contain">
+                            <select name="fp_side" id="fp_side" data-native-menu="false">
+                                <option value="AG">Color Front</option>
+                                <option value="AG">Blank Black</option>
+                                <option value="AG">Blank Only Black</option>
+                                <option value="AG">Full Color on Both Sides</option>
+                                <option value="AG">Color Outside and Blank Inside</option>
+                                <option value="AG">Full Color Both Sides</option>
+                            </select>
+                        </fieldset>
+                        <div data-role="fieldcontain">
+                            <input type="file" name="fp_file" id="fp_file" />
+                        </div>
+                        <div data-role="navbar">
+                            <ul>
+                                <li><button type="submit">Submit</button></li>
+                                <li><button type="reset">Reset</button></li>
+                            </ul>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+		
+		<div data-role="page" id="NotifySettings">
+			<div data-role="header" id="app-header" data-position="fixed">
+				<img src="images/logo.png" id="app-logo" alt="PsPrint Logo" />
+    <div id="custom-nav-wrap">
+		<a href="#" data-rel="back" class="back-btn"></a>
+		<div class="traker-button-block" data-role="navbar">
+			<h3>Notification Settings</h3>
+		</div>
+		<a href="#" data-rel="back" class="logout-btn"></a>
+	</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div id="single-job-details">
+					<div class="single-detail-content">
+						<div class="detail-content-main">
+							<div class="detail-texts">
+								Send Notifications to my phone when job status is updated for :
+							</div>
+							<div class="detail-texts">
+								<h3>Job Shipped</h3>
+								<input type="checkbox" data-role="flipswitch" name="shipping-notification" id="shipping-notification">
+									</div>
+							<div class="detail-texts">
+								<h3>Ready for Pick-Up</h3>
+								<input type="checkbox" checked data-role="flipswitch" name="pickup-notification" id="pickup-notification">
+									</div>
+							<div class="detail-texts">
+								<h3>Production Issue</h3>
+								<input type="checkbox" data-role="flipswitch" name="production-notification" id="production-notification">
+									</div>
+							<div class="detail-texts">
+								<h3>Cancelled</h3>
+								<input type="checkbox" data-role="flipswitch" name="cancel-notification" id="cancel-notification">
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<a href="#home" class="footer-home" data-transition="slide">&nbsp;</a>
+						<a href="#jobsList" class="footer-tracker" data-transition="slide">&nbsp;</a>
+						<a href="#ContactPsp" class="footer-contact" data-transition="slide">&nbsp;</a>
+						<a href="#Notifications" class="footer-notification" data-transition="slide">&nbsp;</a>
+						<a href="#locations" class="footer-location" data-transition="slide">&nbsp;</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
